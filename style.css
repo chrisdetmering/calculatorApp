@@ -1,0 +1,16 @@
+.keypad { 
+  display: flex; 
+  flex-wrap: wrap; 
+}
+
+.values-container { 
+  display: flex; 
+  flex-wrap: wrap; 
+  width: 75px; 
+}
+
+.operators-container { 
+  display: flex; 
+  width: 80px; 
+  align-items: flex-start;
+}
