@@ -1,32 +1,15 @@
 const display = document.querySelector(".display");
-const values = []; 
+let value1; 
+let value2; 
 let operation; 
 
 
 document.querySelectorAll(".value").forEach(button => { 
   button.addEventListener('click', event => { 
+   if (isDisplay10Digits()) return; 
     const num = event.target.value; 
  
-    if (!values[0]) { 
-      values[0] = num;
-      display.value = num; 
-      return; 
-    }
-
-    if (!values[1] && !operation) { 
-      values[0] += num;
-      display.value = values[0]; 
-      return; 
-    } 
-
-    if (!values[1]) { 
-      values[1] = num; 
-      display.value = num; 
-      return; 
-    }
-
-      values[1] += num; 
-      display.value = num; 
+      display.value = setValues(num);
   })
 
 })
@@ -35,6 +18,14 @@ document.querySelectorAll(".operator").forEach(button => {
   button.addEventListener('click', event => { 
     const operator = event.target.value; 
 
+    if (isOperation() && isValue2() && isValue1()) { 
+      let result = operation(value1, value2);
+      value1 = String(result); 
+      value2 = undefined; 
+      setOperator(operator);
+      display.value = result; 
+      return; 
+    }
     setOperator(operator)
     display.value = operator; 
   })
@@ -42,10 +33,20 @@ document.querySelectorAll(".operator").forEach(button => {
 })
 
 document.querySelector(".equal").addEventListener('click', () => { 
-  const calculation = operation(...values); 
-  display.value = calculation; 
+  let result = operation(value1, value2); 
+  value1 = undefined; 
+  value2 = undefined; 
+  operation = undefined; 
+  display.value = result; 
 })
 
+
+document.querySelector(".clear").addEventListener('click', () => { 
+  value1 = undefined; 
+  value2 = undefined; 
+  operation = undefined; 
+  display.value = 0; 
+})
 
 
 function setOperator(operator) { 
@@ -59,20 +60,60 @@ function setOperator(operator) {
   operation =  operations[operator];
 }
 
+//values & operation are globals 
+function setValues(num) { 
+  if (!isValue1()) { 
+    value1 = num;
+    return num; 
+  }
 
-//calculations
+  if (!isValue2() && !operation) { 
+    value1 += num;
+    return value1;
+  } 
+
+  if (!isValue2()) { 
+    value2 = num; 
+    return num; 
+  }
+
+    value2 += num; 
+    return value2; 
+}
+
+function isOperation() { 
+    return operation ? true : false; 
+}
+
+
+function isValue1() { 
+  return !!value1; 
+}
+
+function isValue2() { 
+  return !!value2; 
+}
+
+function isDisplay10Digits() { 
+    return display.value.length === 10; 
+}
+
+
 function add(num1, num2) { 
-  return Number(num1) + Number(num2);
+    const result = Number(num1) + Number(num2)
+    return result;
 }
 
 function subtract(num1, num2) { 
-  return num1 - num2; 
+  return Number(num1) - Number(num2) 
 }
+
 function multiply(num1, num2) { 
-  return num1 * num2;
+  return Number(num1) * Number(num2);
 }
+
 function divide(num1, num2) { 
-  return num1 / num2; 
+  return Number(num1) / Number(num2); 
 }
 
 
