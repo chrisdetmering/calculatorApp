@@ -14,10 +14,8 @@ Use it [here](https://andysterks.github.io/JS-Tetris)
 
 ## Summary
 
-Back in 2014 I was determined to become a programmer. After reading the Head First Javascript book, I wasn't sure what project to work on. I eventually landed on Tetris.
-
-It took me more than a month to work through building out all the functionality that was needed. I learned A TON about problem solving and some of the different concepts I had learned in Javascript (such as working with classes). It was challenging at times but worth every minute. :-)
+This was a good test of your ability to think logically. It was fun to build. I learned how to keep my code DRY and how to use the single responsibility principle when making functions. 
 
 ## Author
 
-* **Andy Sterkowitz** - *Full-Stack Software Developer* - [Website](https://andysterkowitz.com) | [LinkedIn](https://www.linkedin.com/in/andrewsterkowitz/)
+* **Chris Detmering** - *Full-Stack Software Developer*  | [LinkedIn](https://www.linkedin.com/in/chris-detmering-1b8b9851/)
