@@ -10,7 +10,7 @@ Use it [here](https://andysterks.github.io/JS-Tetris)
 
 <br>
 
-<image src="calculator.png">
+<image src="Screen Shot 2020-12-16 at 2.47.33 PM.png">
 
 ## Summary
 
