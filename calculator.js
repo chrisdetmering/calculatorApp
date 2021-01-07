@@ -34,7 +34,7 @@ document.querySelectorAll(".operator").forEach(button => {
 
 document.querySelector(".equal").addEventListener('click', () => { 
   let result = operation(value1, value2); 
-  value1 = undefined; 
+  value1 = result; 
   value2 = undefined; 
   operation = undefined; 
   display.value = result; 
