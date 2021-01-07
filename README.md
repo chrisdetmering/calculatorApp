@@ -10,7 +10,7 @@ Use it [here](https://chrisdetmering.github.io/calculatorApp/)
 
 <br>
 
-<image src="Screen Shot 2020-12-16 at 2.47.33 PM.png">
+<image src="calculator.png">
 
 ## Summary
 
